@@ -33,10 +33,17 @@
 <link rel="stylesheet" href="/lib/snackbar.min.css">
 
 
+    
+<link rel="stylesheet" href="/css/commentBarrage.css">
+
+    
+<script src="https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.16/twikoo.all.min.js"></script>
+
+
 
 <script type="text/javascript" src="/js/utils.js"></script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-04-20 00:00:00","lazyload":{"enable":true,"error":"/img/error_load.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":"https://twikoo.sondy.top"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":true,"error":"/img/error_load.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.lisui.top"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
         
@@ -186,6 +193,13 @@
             </div>
         
         
+            <div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"
+                 title="热评开关">
+                <a class="commentBarrage">
+                    <i class="ri-message-3-fill"></i>
+                </a>
+            </div>
+        
     </div>
     <div class="console-mask" onclick="sco.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
 </div>
@@ -212,7 +226,7 @@
           
             
             <a class="back-menu-item" target="_blank" href="https://github.com/DuoSco/Hexo-Theme-solitude" rel="external nofollow noopener" title="Solitude">
-              <img class="back-menu-item-icon" src= "/img/loading.gif" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "https://s3.qjqq.cn/3/64de148060f7b.webp!color" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png" loading="lazy">
               <span class="back-menu-item-text">
                 Solitude
               </span>
@@ -391,6 +405,11 @@
             <span>复制地址</span>
         </a>
         
+            <a class="rightMenu-item" href="javascript:sco.switchCommentBarrage()">
+                <i class="scoicon ri-message-3-fill"></i>
+                <span class="menu-commentBarrage-text">关闭热评</span>
+            </a>
+        
     </div>
 </div>
 <script>
@@ -476,7 +495,7 @@
           
             
             <a class="back-menu-item" target="_blank" href="https://github.com/DuoSco/Hexo-Theme-solitude" rel="external nofollow noopener" title="Solitude">
-              <img class="back-menu-item-icon" src= "/img/loading.gif" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "https://s3.qjqq.cn/3/64de148060f7b.webp!color" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png" loading="lazy">
               <span class="back-menu-item-text">
                 Solitude
               </span>
@@ -685,9 +704,9 @@
                 </span>
             
             
-                <span class="post-meta-position" title="作者IP归属地为衡阳">
+                <span class="post-meta-position" title="作者IP归属地为东莞">
                     <i class="post-meta-icon ri-map-pin-fill"></i>
-                    <span>衡阳</span>
+                    <span>东莞</span>
                 </span>
             
             
@@ -712,6 +731,13 @@
                             
                 </span>
             
+            
+                <span class="post-meta-commentcount" title="评论数">
+                    <i class="ri-message-fill"></i>
+                    <a href="#post-comment">
+                        <span id="twikoo-count"><i class="ri-loader-2-fill"></i></span>
+                    </a>
+                </span>
                 
         </div>
     </div>
@@ -804,6 +830,47 @@
         
 
         
+            <div id="post-comment" view-image>
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="scoicon ri-message-fill"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://twikoo.lisui.top","path":"window.location.pathname","lang":"zh-CN"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && sco.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)')
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+        
+            var countOptions = Object.assign(
+                {"envId":"https://twikoo.lisui.top","path":"window.location.pathname","lang":"zh-CN"},
+                {
+                    urls: [window.location.pathname],
+                    includeReply: false
+                }
+            )
+            const res = await twikoo.getCommentsCount(countOptions)
+            try{
+                document.getElementById('twikoo-count').innerText = res[0].count
+            }catch (e) {
+                document.getElementById('twikoo-count').innerText = '加载错误'
+            }
+        
+    }
+</script>
+    </div>
+</div>
+        
     </div>
 
     <div class="aside-content" id="aside-content">
@@ -820,7 +887,7 @@
             </div>
         </div>
         <div class="avatar-img-group">
-            <img class="avatar-img" alt="avatar" src= "/img/loading.gif" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png">
+            <img class="avatar-img" alt="avatar" src= "https://s3.qjqq.cn/3/64de148060f7b.webp!color" data-lazy-src="https://s3.qjqq.cn/3/64de148060f7b.webp!color">
             <div class="avatar-sticker">
                 <svg class="avatar-sticker-img"  alt="avatar" aria-hidden="true">
                     <use xlink:href="#sco-smile"></use>
@@ -843,7 +910,7 @@
             </a>
             <div class="card-info-social-icons is-center">
                 
-                    <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/DuoSco/Hexo-Theme-slitude" title="Github">
+                    <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/lisuid2" title="Github">
                         <i class="ri-github-fill"></i>
                     </a>
                 
@@ -902,6 +969,8 @@
 </div>
 
     
+        <script type="text/javascript" src="/js/post_ai.js"></script>
+    
 </main>
                 <footer id="footer">
                     <div id="sco-footer-bar">
@@ -915,7 +984,7 @@
 </div>
 <div id="footer_deal">
     
-    <img class="footer_mini_logo" src= "/img/loading.gif" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png"
+    <img class="footer_mini_logo" src= "https://s3.qjqq.cn/3/64de148060f7b.webp!color" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png"
          title="返回顶部" onclick="sco.toTop()">
     
 </div>
@@ -969,6 +1038,10 @@
 <div class="comment-barrage">
 </div>
 
+    
+<script src="/js/commentBarrage.js"></script>
+
+
                 </footer>
             </div>
         
@@ -1000,6 +1073,9 @@
 <div id="js-pjax">
     
     
+        <script async
+                src="https://cdn.bootcdn.net/ajax/libs/busuanzi/2.3.0/bsz.pure.mini.min.js"></script>
+    
 </div>
 
     
@@ -1022,6 +1098,10 @@
 
 
 
+
+
+    
+<script src="/js/extend/console/comment.js"></script>
 
 
 

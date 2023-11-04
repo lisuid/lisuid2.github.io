@@ -33,10 +33,17 @@
 <link rel="stylesheet" href="/lib/snackbar.min.css">
 
 
+    
+<link rel="stylesheet" href="/css/commentBarrage.css">
+
+    
+<script src="https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.16/twikoo.all.min.js"></script>
+
+
 
 <script type="text/javascript" src="/js/utils.js"></script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-04-20 00:00:00","lazyload":{"enable":true,"error":"/img/error_load.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":"https://twikoo.sondy.top"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2023-06-12 00:00:00","lazyload":{"enable":true,"error":"/img/error_load.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://twikoo.lisui.top"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false,"comment":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
         
@@ -186,6 +193,13 @@
             </div>
         
         
+            <div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"
+                 title="热评开关">
+                <a class="commentBarrage">
+                    <i class="ri-message-3-fill"></i>
+                </a>
+            </div>
+        
     </div>
     <div class="console-mask" onclick="sco.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
 </div>
@@ -212,7 +226,7 @@
           
             
             <a class="back-menu-item" target="_blank" href="https://github.com/DuoSco/Hexo-Theme-solitude" rel="external nofollow noopener" title="Solitude">
-              <img class="back-menu-item-icon" src= "/img/loading.gif" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "https://s3.qjqq.cn/3/64de148060f7b.webp!color" data-lazy-src="https://bu.dusays.com/2023/10/31/6540daf117d20.png" loading="lazy">
               <span class="back-menu-item-text">
                 Solitude
               </span>
@@ -391,6 +405,11 @@
             <span>复制地址</span>
         </a>
         
+            <a class="rightMenu-item" href="javascript:sco.switchCommentBarrage()">
+                <i class="scoicon ri-message-3-fill"></i>
+                <span class="menu-commentBarrage-text">关闭热评</span>
+            </a>
+        
     </div>
 </div>
 <script>
@@ -480,7 +499,7 @@
                 
                 <div class="aside-list-item">
                     <a class="thumbnail" href="/2023/11/03/hello-world/" title="Hello World">
-                        <img src= "/img/loading.gif" data-lazy-src="/img/default.png" alt="Hello World">
+                        <img src= "https://s3.qjqq.cn/3/64de148060f7b.webp!color" data-lazy-src="/img/default.png" alt="Hello World">
                     </a>
                     <div class="content">
                         <a class="title" href="/2023/11/03/hello-world/" title="Hello World">
@@ -522,6 +541,9 @@
 <div id="js-pjax">
     
     
+        <script async
+                src="https://cdn.bootcdn.net/ajax/libs/busuanzi/2.3.0/bsz.pure.mini.min.js"></script>
+    
 </div>
 
     
@@ -544,6 +566,10 @@
 
 
 
+
+
+    
+<script src="/js/extend/console/comment.js"></script>
 
 
 
