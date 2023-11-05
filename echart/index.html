@@ -174,6 +174,9 @@
                             <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 0.8rem; color: #d3d3d3">教程
                                 <sup>2</sup></a>
                         
+                            <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 0.8rem; color: #d3d3d3">知识
+                                <sup>1</sup></a>
+                        
                     </div>
                 </div>
                 <div class="console-card history" onclick="sco.hideConsole()">
@@ -181,7 +184,7 @@
     
     
         <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/11/')" data-pjax-state=""><span class="card-archive-list-date">2023/11</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span class="card-archive-list-count-unit">篇</span></div>
+            <div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span class="card-archive-list-count-unit">篇</span></div>
             </a>
         </li>
         
@@ -366,6 +369,10 @@
                 
                     <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1em; color: #d3d3d3">教程
                         <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 1em; color: #d3d3d3">知识
+                        <sup>1</sup>
                     </a>
                 
             </div>
@@ -780,7 +787,7 @@
             color: 'rgba(1, 191, 236)'
           }])
         },
-        data: [0,0,0,0,0,0,0,0,0,0,3],
+        data: [0,0,0,0,0,0,0,0,0,0,4],
         markLine: {
           data: [{
             name: '平均值',
@@ -807,7 +814,7 @@
     var tagsChart = echarts.init(document.getElementById('tags-chart'), 'light');
     var tagsOption = {
       title: {
-        text: 'Top 2 标签统计图',
+        text: 'Top 3 标签统计图',
         x: 'center',
         textStyle: {
           color: color
@@ -834,7 +841,7 @@
             color: color
           }
         },
-        data: ["教程","hello"]
+        data: ["教程","hello","知识"]
       },
       yAxis: {
         name: '文章篇数',
@@ -862,7 +869,7 @@
       series: [{
         name: '文章篇数',
         type: 'bar',
-        data: [{"name":"教程","value":2,"path":"tags/教程/"},{"name":"hello","value":1,"path":"tags/hello/"}],
+        data: [{"name":"教程","value":2,"path":"tags/教程/"},{"name":"hello","value":1,"path":"tags/hello/"},{"name":"知识","value":1,"path":"tags/知识/"}],
         itemStyle: {
           borderRadius: [5, 5, 0, 0],
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -921,7 +928,7 @@
       },
       legend: {
         top: 'bottom',
-        data: ["教程","hello"],
+        data: ["教程","hello","知识"],
         textStyle: {
           color: color
         }
@@ -940,7 +947,7 @@
         radius: ['15%', '90%'],
         center: ['50%', '55%'],
         sort: 'desc',
-        data: [{"name":"教程","value":2,"path":"categories/教程/","id":"cloku3vhf000ao4vk318rfxb0","parentId":"0"},{"name":"hello","value":1,"path":"categories/hello/","id":"cloku3vh60004o4vk9l79ccfm","parentId":"0"}],
+        data: [{"name":"教程","value":2,"path":"categories/教程/","id":"cloku3vhf000ao4vk318rfxb0","parentId":"0"},{"name":"hello","value":1,"path":"categories/hello/","id":"cloku3vh60004o4vk9l79ccfm","parentId":"0"},{"name":"知识","value":1,"path":"categories/知识/","id":"clokueajx00015gvkbiii6746","parentId":"0"}],
         itemStyle: {
           borderColor: '#fff',
           borderWidth: 2,
@@ -962,7 +969,7 @@
           color: color,
           formatter: '{b} : {c} ({d}%)'
         },
-        data: [{"name":"教程","value":2,"path":"categories/教程/","id":"cloku3vhf000ao4vk318rfxb0","parentId":"0"},{"name":"hello","value":1,"path":"categories/hello/","id":"cloku3vh60004o4vk9l79ccfm","parentId":"0"}],
+        data: [{"name":"教程","value":2,"path":"categories/教程/","id":"cloku3vhf000ao4vk318rfxb0","parentId":"0"},{"name":"hello","value":1,"path":"categories/hello/","id":"cloku3vh60004o4vk9l79ccfm","parentId":"0"},{"name":"知识","value":1,"path":"categories/知识/","id":"clokueajx00015gvkbiii6746","parentId":"0"}],
         itemStyle: {
           emphasis: {
             shadowBlur: 10,
@@ -1197,4 +1204,4 @@
 </div>
 
     
-<script>const posts=["posts/381da2ef.html","posts/aa9c54d4.html","posts/4a17b156.html"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); };</script></body></html>
+<script>const posts=["posts/5abaf631.html","posts/381da2ef.html","posts/aa9c54d4.html","posts/4a17b156.html"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); };</script></body></html>
