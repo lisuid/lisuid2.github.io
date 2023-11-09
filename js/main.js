@@ -531,12 +531,12 @@ class sco {
             'light'
         if (nowMode === 'light') {
             document.documentElement.setAttribute('data-theme', 'dark')
-            saveToLocal.set('theme', 'dark', 0.5);
+            saveToLocal.set('theme', 'dark', 0.04);
             utils.snackbarShow(GLOBALCONFIG.lang.theme.dark, false, 2000)
             document.querySelector(".menu-darkmode-text").textContent = "深色模式";
         } else {
             document.documentElement.setAttribute('data-theme', 'light')
-            saveToLocal.set('theme', 'light', 0.5);
+            saveToLocal.set('theme', 'light', 0.04);
             utils.snackbarShow(GLOBALCONFIG.lang.theme.light, false, 2000)
             document.querySelector(".menu-darkmode-text").textContent = "浅色模式";
         }
@@ -564,25 +564,28 @@ class sco {
         }
     }
 
-    static copyPageUrl() {
-        utils.copy(window.location.href)
-    }
-
     static lightbox(el) {
         window.ViewImage && window.ViewImage.init("#article-container img:not(.flink-avatar), .bber-content-img img, #album_detail img, #equipment img, #twikoo .tk-content img:not(.tk-owo-emotion)");
     }
 
     static initTheme() {
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const cachedMode = saveToLocal.get('theme');
-
-        if (cachedMode === undefined) {
-            const nowMode =
-                isDarkMode ? 'dark' : 'light'
-            document.documentElement.setAttribute('data-theme', nowMode);
-            saveToLocal.set('theme', nowMode, 2);
-        } else {
-            document.documentElement.setAttribute('data-theme', cachedMode);
+        try {
+            const cachedMode = saveToLocal.get('theme');
+            if (cachedMode === undefined) {
+                const nowMode =
+                    isDarkMode ? 'dark' : 'light'
+                document.documentElement.setAttribute('data-theme', nowMode);
+                saveToLocal.set('theme', nowMode, 0.5);
+            } else {
+                document.documentElement.setAttribute('data-theme', cachedMode);
+            }
+        } catch (e) {
+            if (isDarkMode) {
+                saveToLocal.set('theme', 'dark', 0.5)
+            } else {
+                saveToLocal.set('theme', 'light', 0.5)
+            }
         }
     }
 
@@ -758,7 +761,7 @@ class hightlight {
                     $expand[0].setAttribute('style', 'display:block')
                 }
                 if (itemHeight < 200) {
-                    $table.setAttribute('style', 'height:' + itemHeight + "px")
+                    $table.setAttribute('style', 'height: auto')
                 } else {
                     $table.setAttribute('style', 'height:200px')
                     ele.classList.remove("expand-done")

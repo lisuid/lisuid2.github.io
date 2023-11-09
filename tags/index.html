@@ -125,11 +125,10 @@
                 }
             }
 
-            const DarkModeStatus = saveToLocal.get('theme')
-            if(DarkModeStatus !== undefined){
+            const DarkModeStatus = localStorage.getItem('theme')
+            if(DarkModeStatus !== null){
                 if(DarkModeStatus === 'dark'){
                     document.documentElement.setAttribute('data-theme', 'dark')
-
                 }else{
                     document.documentElement.setAttribute('data-theme', 'light')
                 }
@@ -146,12 +145,8 @@
         }
     )(window)
 
-    console.log("%c🔥欢迎来到理随的博客 😋", "color:#fff; background: linear-gradient(270deg, #18d7d3, #68b7dd, #8695e6, #986fee); padding: 8px 15px; border-radius: 8px");
+    console.log("%c🔥 程序：Hexo | 主题：Hexo-Theme-Solitude | 作者：DuoSco团队 | 官网：https://github.com/DuoSco/Hexo-theme-solitude 😋", "color:#fff; background: linear-gradient(270deg, #18d7d3, #68b7dd, #8695e6, #986fee); padding: 8px 15px; border-radius: 8px");
 </script>
-
-    
-<script src="/lib/chuckle-post-ai.js"></script>
-
 
 
     <link rel="stylesheet" href="/css/custom.css">
@@ -850,12 +845,15 @@
     <div class="cookies-window-content">
         <span class="cookies-tip">查看本站为你的个人隐私做出的努力</span>
         <a class="cookies-link" href="/privacy/" title="本站如何保护你的隐私" data-pjax-state="">
-            <i class="heofont icon-arrow-right-circle-fill"></i>
+            <i class="scoicon sco-arrow-right-circle-fill"></i>
         </a>
     </div>
 </div>
-<div class="comment-barrage">
-</div>
+
+
+    <div class="comment-barrage">
+    </div>
+
         </footer>
     </div>
 
@@ -907,7 +905,7 @@
             <span>复制选中文本</span>
         </div>
         <div class="rightMenu-item" id="menu-pastetext">
-            <i class="heofont icon-clipboard-fill"></i>
+            <i class="scoicon sco-clipboard-fill"></i>
             <span>粘贴文本</span>
         </div>
         <a class="rightMenu-item" id="menu-commenttext" data-pjax-state="">

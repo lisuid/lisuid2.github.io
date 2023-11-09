@@ -125,11 +125,10 @@
                 }
             }
 
-            const DarkModeStatus = saveToLocal.get('theme')
-            if(DarkModeStatus !== undefined){
+            const DarkModeStatus = localStorage.getItem('theme')
+            if(DarkModeStatus !== null){
                 if(DarkModeStatus === 'dark'){
                     document.documentElement.setAttribute('data-theme', 'dark')
-
                 }else{
                     document.documentElement.setAttribute('data-theme', 'light')
                 }
@@ -146,12 +145,8 @@
         }
     )(window)
 
-    console.log("%c🔥欢迎来到理随的博客 😋", "color:#fff; background: linear-gradient(270deg, #18d7d3, #68b7dd, #8695e6, #986fee); padding: 8px 15px; border-radius: 8px");
+    console.log("%c🔥 程序：Hexo | 主题：Hexo-Theme-Solitude | 作者：DuoSco团队 | 官网：https://github.com/DuoSco/Hexo-theme-solitude 😋", "color:#fff; background: linear-gradient(270deg, #18d7d3, #68b7dd, #8695e6, #986fee); padding: 8px 15px; border-radius: 8px");
 </script>
-
-    
-<script src="/lib/chuckle-post-ai.js"></script>
-
 
 
     <link rel="stylesheet" href="/css/custom.css">
@@ -743,11 +738,11 @@
                 原创
             </a>
             
-            <span class="post-meta-categories">
-                
-                    <a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
-                
-            </span>
+                <span class="post-meta-categories">
+                    
+                        <a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                    
+                </span>
             
             <div class="tag_share">
                 <div class="post-meta__tag-list">
@@ -764,10 +759,12 @@
     <h1 class="post-title">一键激活Windows/office</h1>
     <div id="post-meta">
         <div class="meta-secondline">
-            <span class="post-meta-date" title="发布于">
+            
+                <span class="post-meta-date" title="发布于">
                 <i class="post-meta-icon scoicon sco-calendar-todo-fill"></i>
                 <time datetime="2023-11-06T16:51:56+08:00"></time>
             </span>
+            
             
                 <span class="post-meta-date" title="更新于">
                     <i class="post-meta-icon scoicon sco-refresh-line"></i>
@@ -799,7 +796,7 @@
                     <i class="scoicon sco-fire-fill post-meta-icon"></i>
                     
                         <span id="twikoo_visitors"><i class="scoicon sco-loading-line"></i></span>
-                            
+                    
                 </span>
             
             
@@ -809,7 +806,7 @@
                         <span id="twikoo-count"><i class="scoicon sco-loading-line"></i></span>
                     </a>
                 </span>
-                
+            
         </div>
     </div>
 </div>
@@ -827,7 +824,6 @@
     </g>
 </svg>
 </section>
-
         
 </header>
         <main class="layout" id="content-inner">
@@ -888,12 +884,14 @@
     <div class="post-tools" id="post-tools">
         <div class="post-tools-left">
             
-            <div class="reward-link mode">
-                <a class="reward-link-button" href="">
-                    <i class="heofont icon-plant-fill"></i>
-                    订阅
-                </a>
-            </div>
+            
+                <div class="reward-link mode">
+                    <a class="reward-link-button" href="">
+                        <i class="scoicon sco-plant-fill"></i>
+                        订阅
+                    </a>
+                </div>
+            
         </div>
     </div>
     <div class="post-copyright__notice">
@@ -945,7 +943,7 @@
 </nav>
         
 
-        <div class="relatedPosts"><div class="headline"><i class="scoicon sco-star-smile-fill"></i><span>喜欢这篇的人也看了</span><div class="relatedPosts-link"><a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a></div></div><div class="relatedPosts-list"><div><a href="/posts/af19e490.html" title="Butterfly的魔改教程：个性定位信息"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://s3.qjqq.cn/3/64dcc11e2368e.webp!color" alt="cover"><div class="content is-center"><div class="title">Butterfly的魔改教程：个性定位信息</div></div></a></div><div><a href="/posts/381da2ef.html" title="为你的网站添加一个监控"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://s3.qjqq.cn/3/653cc2e75af24.webp!color" alt="cover"><div class="content is-center"><div class="title">为你的网站添加一个监控</div></div></a></div></div></div>
+        <div class="relatedPosts"><div class="headline"><i class="scoicon sco-star-smile-fill"></i><span>喜欢这篇的人也看了</span><div class="relatedPosts-link"><a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a></div></div><div class="relatedPosts-list"><div><a href="/posts/381da2ef.html" title="为你的网站添加一个监控"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://s3.qjqq.cn/3/653cc2e75af24.webp!color" alt="cover"><div class="content is-center"><div class="title">为你的网站添加一个监控</div></div></a></div><div><a href="/posts/af19e490.html" title="Butterfly的魔改教程：个性定位信息"><img class="cover" src= "/img/loading.gif" data-lazy-src="https://s3.qjqq.cn/3/64dcc11e2368e.webp!color" alt="cover"><div class="content is-center"><div class="title">Butterfly的魔改教程：个性定位信息</div></div></a></div></div></div>
 
         
             <div id="post-comment" view-image>
@@ -1134,7 +1132,7 @@
                 <i class="item-icon scoicon sco-loop-left-fill"></i>
                 <div class="item-name">最后更新 :</div>
             </div>
-            <time class="item-count" datetime="Thu Nov 09 2023 00:18:56 GMT+0800 (China Standard Time)">
+            <time class="item-count" datetime="Thu Nov 09 2023 16:50:42 GMT+0800 (China Standard Time)">
             </time>
         </div>
     
@@ -1243,22 +1241,6 @@
 </div>
 
     
-        <script data-pjax defer>
-            // AI构造函数
-            new ChucklePostAI({
-                /* 必须配置 */
-                // 文章内容所在的元素属性的选择器，也是AI挂载的容器，AI将会挂载到该容器的最前面
-                el: '#post #article-container',
-                // 驱动AI所必须的key，即是tianliGPT后端服务所必须的key
-                key: '90aec95d869ffd1867a8',
-                /* 非必须配置，但最好根据自身需要进行配置 */
-                // 文章标题所在的元素属性的选择器，默认获取当前网页的标题
-                title_el: '.post-title',
-                // 文章推荐方式，all：匹配数据库内所有文章进行推荐，web：仅当前站内的文章，默认all
-                rec_method: 'web',
-            })
-        </script>
-    
 </main>
         <footer id="footer">
             <div id="sco-footer-bar">
@@ -1319,12 +1301,15 @@
     <div class="cookies-window-content">
         <span class="cookies-tip">查看本站为你的个人隐私做出的努力</span>
         <a class="cookies-link" href="/privacy/" title="本站如何保护你的隐私" data-pjax-state="">
-            <i class="heofont icon-arrow-right-circle-fill"></i>
+            <i class="scoicon sco-arrow-right-circle-fill"></i>
         </a>
     </div>
 </div>
-<div class="comment-barrage">
-</div>
+
+
+    <div class="comment-barrage">
+    </div>
+
         </footer>
     </div>
 
@@ -1376,7 +1361,7 @@
             <span>复制选中文本</span>
         </div>
         <div class="rightMenu-item" id="menu-pastetext">
-            <i class="heofont icon-clipboard-fill"></i>
+            <i class="scoicon sco-clipboard-fill"></i>
             <span>粘贴文本</span>
         </div>
         <a class="rightMenu-item" id="menu-commenttext" data-pjax-state="">
