@@ -1,1 +1,32 @@
-extends includes/layout.pug block content main.layout(class=page.aside ? '' : 'hide-aside', id='content-inner') div#page case page.type when 'categories' include includes/page/categories when 'tags' include includes/page/tags when 'links' include includes/page/links when 'tlink' include includes/page/tlink when 'about' include includes/page/about when 'says' include includes/page/says when 'equipment' include includes/page/equipment when 'moments' include includes/page/moments when 'echarts' include includes/page/echarts when 'rss' include includes/page/rss default include includes/page/default if page.comment include includes/widgets/third-party/comments/comment if page.aside include includes/widgets/aside/aside<script>const posts=["posts/78a7974c.html","posts/af19e490.html","posts/aa9c54d4.html","posts/286470e0.html","posts/efe4d5b4.html","posts/381da2ef.html","posts/5abaf631.html","posts/e29ba27e.html"];function toRandomPost(){pjax.loadUrl("/"+posts[Math.floor(Math.random()*posts.length)])}</script>
+extends includes/layout.pug
+
+block content
+  main.layout(class=page.aside ? '' : 'hide-aside', id='content-inner')
+    div#page
+      case page.type
+        when 'categories'
+          include includes/page/categories
+        when 'tags'
+          include includes/page/tags
+        when 'links'
+          include includes/page/links
+        when 'tlink'
+          include includes/page/tlink
+        when 'about'
+          include includes/page/about
+        when 'says'
+          include includes/page/says
+        when 'equipment'
+          include includes/page/equipment
+        when 'moments'
+          include includes/page/moments
+        when 'echarts'
+          include includes/page/echarts
+        when 'rss'
+          include includes/page/rss
+        default
+          include includes/page/default
+      if page.comment
+        include includes/widgets/third-party/comments/comment
+    if page.aside
+      include includes/widgets/aside/aside<script>const posts=["posts/78a7974c.html","posts/af19e490.html","posts/286470e0.html","posts/aa9c54d4.html","posts/efe4d5b4.html","posts/381da2ef.html","posts/5abaf631.html","posts/e29ba27e.html"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); };</script>

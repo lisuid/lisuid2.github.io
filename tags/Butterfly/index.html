@@ -1,1 +1,19 @@
-extends includes/layout.pug block content main.layout#content-inner div#tag div#tag-page-tags each tag in site.tags.find({ parent: { $exists: false } }).data a(id=tag.name class=(tag.name === page.tag ? 'select' : '') href=url_for(tag.path)) span.tags-punctuation | #{tag.name} span.tagsPageCount #{tag.length} div.recent-posts#recent-posts - const currentTag = page.tag each post in site.posts.data each tag in post.tags.data if tag.name === currentTag include includes/widgets/home/postList include includes/mixins/pagination include includes/widgets/aside/aside<script>const posts=["posts/78a7974c.html","posts/af19e490.html","posts/aa9c54d4.html","posts/286470e0.html","posts/efe4d5b4.html","posts/381da2ef.html","posts/5abaf631.html","posts/e29ba27e.html"];function toRandomPost(){pjax.loadUrl("/"+posts[Math.floor(Math.random()*posts.length)])}</script>
+extends includes/layout.pug
+
+block content
+  main.layout#content-inner
+    div#tag
+      div#tag-page-tags
+        each tag in site.tags.find({ parent: { $exists: false } }).data
+          a(id=tag.name class=(tag.name === page.tag ? 'select' : '') href=url_for(tag.path))
+            span.tags-punctuation
+            | #{tag.name}
+            span.tagsPageCount #{tag.length}
+      div.recent-posts#recent-posts
+        - const currentTag = page.tag
+        each post in site.posts.data
+          each tag in post.tags.data
+            if tag.name === currentTag
+              include includes/widgets/home/postList
+      include includes/mixins/pagination
+    include includes/widgets/aside/aside<script>const posts=["posts/78a7974c.html","posts/af19e490.html","posts/286470e0.html","posts/aa9c54d4.html","posts/efe4d5b4.html","posts/381da2ef.html","posts/5abaf631.html","posts/e29ba27e.html"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); };</script>
