@@ -2,7 +2,7 @@
 
 (() => {
     /** 缓存库名称 */
-    const CACHE_NAME = 'SolitudeCache'
+    const CACHE_NAME = 'AnZhiYuThemeCache'
     /** 控制信息存储地址（必须以`/`结尾） */
     const CTRL_PATH = 'https://id.v3/'
 
@@ -51,30 +51,35 @@
     // noinspection JSFileReferences
     let cacheRules = {
 simple: {
-clean: false,
+clean: true,
 search: false,
-match: url => url.host === ejectDomain && ["/404.html", "/css/index.css"].includes(url.pathname)}
+match: url => {
+      const allowedHost = ejectDomain;
+      const allowedPaths = ["/404.html", "/css/index.css"];
+      return url.host === allowedHost && allowedPaths.includes(url.pathname);
+    }}
 ,
 cdn: {
 clean: true,
-match: url => [
-            "cdn.cbd.int",
-            "lf26-cdn-tos.bytecdntp.com",
-            "lf6-cdn-tos.bytecdntp.com",
-            "lf3-cdn-tos.bytecdntp.com",
-            "lf9-cdn-tos.bytecdntp.com",
-            "cdn.staticfile.org",
-            "npm.elemecdn.com",
-        ].includes(url.host) && url.pathname.match(/\.(js|css|woff2|woff|ttf|cur)$/)}
+match: url =>
+      [
+        "cdn.cbd.int",
+        "lf26-cdn-tos.bytecdntp.com",
+        "lf6-cdn-tos.bytecdntp.com",
+        "lf3-cdn-tos.bytecdntp.com",
+        "lf9-cdn-tos.bytecdntp.com",
+        "cdn.staticfile.org",
+        "npm.elemecdn.com",
+      ].includes(url.host) && url.pathname.match(/\.(js|css|woff2|woff|ttf|cur)$/)}
 }
 
 let getSpareUrls = srcUrl => {
-    if (srcUrl.startsWith("https://npm.elemecdn.com")) {
-        return {
-            timeout: 3000,
-            list: [srcUrl, `https://cdn.cbd.int/${new URL(srcUrl).pathname}`],
-        };
-    }
+  if (srcUrl.startsWith("https://npm.elemecdn.com")) {
+    return {
+      timeout: 3000,
+      list: [srcUrl, `https://cdn.cbd.int/${new URL(srcUrl).pathname}`],
+    };
+  }
 }
 let isCors = () => false
 let isMemoryQueue = () => false
